@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background: #0a0a0a;
+    color: #00ff00;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.terminal {
+    width: 90%;
+    max-width: 900px;
+    height: 80vh;
+    background: #1a1a1a;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.3);
+    border: 1px solid #00ff00;
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: #2a2a2a;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #00ff00;
+    gap: 15px;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+    margin-right: 15px;
+}
+
+.btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.close {
+    background: #ff5f56;
+}
+
+.minimize {
+    background: #ffbd2e;
+}
+
+.maximize {
+    background: #27c93f;
+}
+
+.terminal-title {
+    color: #00ff00;
+    font-size: 14px;
+    font-weight: 400;
+    flex-grow: 1;
+}
+
+.skip-animation-btn {
+    background: #333;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: auto;
+}
+
+.skip-animation-btn:hover {
+    background: #00ff00;
+    color: #000;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 255, 0, 0.3);
+}
+
+.terminal-content {
+    padding: 20px;
+    height: calc(100% - 50px);
+    overflow-y: auto;
+    line-height: 1.6;
+}
+
+.command-line {
+    margin-bottom: 15px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in forwards;
+}
+
+.command-line:nth-child(1) { animation-delay: 0.2s; }
+.command-line:nth-child(2) { animation-delay: 0.8s; }
+.command-line:nth-child(3) { animation-delay: 1.4s; }
+.command-line:nth-child(4) { animation-delay: 2.0s; }
+.command-line:nth-child(5) { animation-delay: 2.6s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.prompt {
+    color: #00ff00;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.command {
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.output {
+    margin-top: 10px;
+    margin-left: 20px;
+    color: #00ff00;
+    white-space: pre-line;
+}
+
+.output a {
+    color: #00ffff;
+    text-decoration: none;
+    border-bottom: 1px solid #00ffff;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.output a:hover {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+    background: rgba(0, 255, 255, 0.1);
+}
+
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #333;
+}
+
+.project-item:last-child {
+    border-bottom: none;
+}
+
+.project-name {
+    color: #00ffff;
+    font-weight: 600;
+}
+
+.project-description {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+    color: #00ff00;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.contact-link {
+    display: inline-block;
+    margin: 5px 10px 5px 0;
+    padding: 5px 10px;
+    background: #333;
+    border: 1px solid #00ff00;
+    border-radius: 4px;
+    color: #00ff00;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.contact-link:hover {
+    background: #00ff00;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 255, 0, 0.3);
+}
+
+.skill-tag {
+    display: inline-block;
+    background: #333;
+    color: #00ff00;
+    padding: 2px 8px;
+    margin: 2px;
+    border-radius: 3px;
+    font-size: 0.8em;
+    border: 1px solid #00ff00;
+}
+
+/* Scrollbar styling */
+.terminal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+    background: #00ff00;
+    border-radius: 4px;
+}
+
+.terminal-content::-webkit-scrollbar-thumb:hover {
+    background: #00cc00;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .terminal {
+        width: 95%;
+        height: 90vh;
+    }
+    
+    .terminal-content {
+        padding: 15px;
+        font-size: 14px;
+    }
+    
+    .project-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .project-description {
+        margin-top: 5px;
+    }
+} 
